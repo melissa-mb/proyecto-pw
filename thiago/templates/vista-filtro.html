@@ -11,6 +11,206 @@
 
 <body>
   <h1>Game Filters</h1>
+
+  <div class="container">
+    <!-- Barra de navegación ejemplo -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Brand</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Explore</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categories
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Best Sellers</a></li>
+                <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                <li><a class="dropdown-item" href="#">Free to Play</a></li>
+                <li><a class="dropdown-item" href="#">Multiplayer</a></li>
+                <li><a class="dropdown-item" href="#">Early Access</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Platform
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">PS4</a></li>
+                <li><a class="dropdown-item" href="#">PS5</a></li>
+                <li><a class="dropdown-item" href="#">Switch</a></li>
+                <li><a class="dropdown-item" href="#">Windows</a></li>
+                <li><a class="dropdown-item" href="#">MacOS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Special Offers</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carrusel juegos ejemplo -->
+    <div id="carouselSection" class="carousel slide mt-4" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselSection" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselSection" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselSection" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="/thiago/public/carousel/titanfall.jpg" class="d-block w-100" style="height: 600px;" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="/thiago/public/carousel/infinityblade.jpg" class="d-block w-100" style="height: 600px;" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="/thiago/public/carousel/ironsight.jpg" class="d-block w-100" style="height: 600px;" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselSection" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselSection" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Vista de juegos con filtros -->
+    <div class="container mt-4 mb-4">
+      <h1>Featured Games</h1>
+      <div class="row" style="border-radius: 10px; border: 2px solid red;">
+        <!-- Game view -->
+        <div class="col-8" style="background-color: white;">
+          <div class="container py-4">
+            <div class="row g-4" id="grid-placeholder"></div>
+          </div>
+
+          <!-- Placeholder game grid with JS -->
+          <script>
+            // Create an array of 12 items
+            const placeholders = Array.from({ length: 24 });
+
+            // Map and inject squares into the grid
+            const grid = document.getElementById('grid-placeholder');
+            grid.innerHTML = placeholders.map(() => `
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3">
+              <div class="bg-secondary rounded" style="padding-top: 133%;"></div>
+            </div>
+          `).join('');
+          </script>
+        </div>
+
+        <!-- Filters view -->
+        <div class="col-4" style="background-color: white;">
+          <!-- Rango de precios slider -->
+          <div class="p-3 mt-2 pb-4" style="border: 2px solid gray; border-radius: 6px;">
+            <div class="position-relative w-100 px-2" style="height: 60px;">
+              <label for="filtro-precios">Rango de Precios</label>
+              <input type="range" class="form-range" id="filtro-precios" name="filtro-rango-precios" min="0" max="200"
+                value="40">
+              <div id="filtr-precios-valor" class="position-absolute text-center"
+                style="top: 45px; transform: translateX(-50%); min-width: 30px;">
+                40
+              </div>
+
+              <!-- Script para posicionar el valor del slider -->
+              <script>
+                const slider = document.getElementById("filtro-precios");
+                const valor = document.getElementById("filtr-precios-valor");
+
+                function updateSliderValue() {
+                  const sliderWidth = slider.offsetWidth;
+                  const percent = (slider.value - slider.min) / (slider.max - slider.min);
+                  const offset = sliderWidth * percent;
+                  valor.style.left = offset + "px";
+                  valor.textContent = slider.value;
+                }
+
+                slider.addEventListener("input", updateSliderValue);
+                window.addEventListener("load", updateSliderValue);
+              </script>
+            </div>
+          </div>
+
+          <!-- Categorias checkbox group -->
+          <div class="p-3 mt-2" style="border: 2px solid gray; border-radius: 6px;">
+            <label for="filtro-cat">Categorías</label>
+            <!-- Pendiente -->
+          </div>
+
+          <!-- Ofertas -->
+          <div class="p-3 mt-2" style="border: 2px solid gray; border-radius: 6px;">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="filtro-oferta">
+              <label class="form-check-label" for="filtro-oferta">
+                En Oferta
+              </label>
+            </div>
+          </div>
+
+          <!-- Plataformas -->
+          <div class="p-3 mt-2" style="border: 2px solid gray; border-radius: 6px;">
+            <label for="filtro-plat">Plataformas</label>
+            <!-- Checkbox group -->
+            <div class="d-flex flex-wrap gap-2" id="filtro-plat">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkPs4">
+                <label class="form-check-label" for="checkPs4">
+                  PS4
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkPs5">
+                <label class="form-check-label" for="checkPs5">
+                  PS5
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkSwitch">
+                <label class="form-check-label" for="checkSwitch">
+                  Switch
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkWin">
+                <label class="form-check-label" for="checkWin">
+                  Windows
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkMacos">
+                <label class="form-check-label" for="checkMacos">
+                  MacOS
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
