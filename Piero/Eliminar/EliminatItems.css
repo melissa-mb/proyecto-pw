@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+#carrito {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.eliminar {
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+}
