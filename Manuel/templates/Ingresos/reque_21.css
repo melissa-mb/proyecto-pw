@@ -1,0 +1,19 @@
+/* Estilo para el avatar del usuario */
+.avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Barra lateral: tamaño y color */
+.sidebar {
+  width: 200px;
+  min-height: 100vh;
+}
+
+/* Elemento activo del menú lateral */
+.nav-link.active {
+  font-weight: bold;
+}

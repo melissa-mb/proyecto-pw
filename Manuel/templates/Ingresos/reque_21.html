@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Configuración del documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estadísticas</title>
+
+  <!-- Bootstrap y hoja de estilos personalizada -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="reque_21.css">
+
+  <!-- Librería Chart.js para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Script JS personalizado -->
+  <script defer src="reque_21.js"></script>
+</head>
+
+<body>
+  <!-- Contenedor general que divide en barra lateral y contenido -->
+  <div class="d-flex">
+    <!-- Barra lateral izquierda -->
+    <aside class="sidebar bg-secondary text-white p-3">
+      <div class="text-center mb-4">
+        <!-- Avatar y nombre del usuario -->
+        <div class="avatar mb-2"></div>
+        <div>Jon Shmoe</div>
+      </div>
+      <!-- Navegación de secciones -->
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Users</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Games</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">News</a></li>
+        <li class="nav-item"><a class="nav-link active bg-light text-dark" href="#">Statistics</a></li>
+      </ul>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow-1 p-4">
+      <h2>Statistics</h2>
+
+      <!-- Tarjeta con cantidad de usuarios -->
+      <div class="card text-center my-4">
+        <div class="card-body">
+          <h5 class="card-title">Total registered users</h5>
+          <p class="display-4">120</p>
+        </div>
+      </div>
+
+      <!-- Título y contenedor para el gráfico -->
+      <h5>Earnings by month</h5>
+      <canvas id="earningsChart" height="100"></canvas>
+    </main>
+  </div>
+</body>
+</html>

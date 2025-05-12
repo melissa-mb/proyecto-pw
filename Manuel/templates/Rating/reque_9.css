@@ -1,0 +1,57 @@
+.game-modal {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .star-rating i {
+    color: #ccc;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .star-rating i.checked {
+    color: gold;
+  }
+  
+  /* Contenedor que ajusta su tamaño solo al contenido */
+  .scroll-wrapper {
+    overflow-x: auto;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para las imágenes y scroll horizontal */
+  .scroll-images {
+    white-space: nowrap;
+    padding-bottom: 8px;
+    scrollbar-color: #888 #444; /* Firefox */
+    scrollbar-width: thin;      /* Firefox */
+  }
+  
+  /* Scrollbar para Chrome, Edge, Safari */
+  .scroll-images::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .scroll-images::-webkit-scrollbar-track {
+    background: #444;
+  }
+  
+  .scroll-images::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  /* Estilo para cada imagen */
+  .scroll-images img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  
+  
